@@ -64,3 +64,11 @@ These packages enhance functionality or improve performance:
 |pandas | For data manipulation|
 |geopandas | For geospatial data operations|
 |rtree | For spatial indexing |
+
+## 4. Steps to Operate
+1. Download all the files and save them in the same directory.  
+2. Run the `app.py` file.  
+3. Copy and paste the generated URL into your browser.  
+4. Enter the starting point, destination, and other custom parameters in the input fields.  
+5. Click the **Generate Route** button.  
+6. Wait for the visualized map to be generated.
