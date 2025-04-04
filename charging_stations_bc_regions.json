@@ -1,0 +1,3203 @@
+[
+  {
+    "name": "Tesla Supercharger Squamish",
+    "location": {
+      "latitude": 49.7368401,
+      "longitude": -123.134434
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2380524,
+      "longitude": -123.1289592
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0465137,
+      "longitude": -122.291066
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "EcoDairy ABB Fast-Charge",
+    "location": {
+      "latitude": 49.0281998,
+      "longitude": -122.264813
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.7368036,
+      "longitude": -123.133628
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Chilliwack Visitor Centre Charging Station",
+    "location": {
+      "latitude": 49.1433904,
+      "longitude": -122.0019625
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1341667,
+      "longitude": -123.0892924
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Greenlots",
+    "location": {
+      "latitude": 49.3112622,
+      "longitude": -123.0769407
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2814408,
+      "longitude": -123.0338301
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2863928,
+      "longitude": -123.043534
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Electric Charging Station",
+    "location": {
+      "latitude": 49.2497438,
+      "longitude": -122.9994116
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.7023623,
+      "longitude": -123.1527256
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Greenlots",
+    "location": {
+      "latitude": 49.6980291,
+      "longitude": -123.155342
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "GE",
+    "location": {
+      "latitude": 49.0515295,
+      "longitude": -122.3148725
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0365618,
+      "longitude": -122.3135352
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0364862,
+      "longitude": -122.3136344
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2307928,
+      "longitude": -122.8080231
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.0422714,
+      "longitude": -123.083895
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.0421427,
+      "longitude": -123.086359
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0375722,
+      "longitude": -123.083626
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0371495,
+      "longitude": -123.085022
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0349,
+      "longitude": -123.0885
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.0421228,
+      "longitude": -123.089271
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0394797,
+      "longitude": -123.086207
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0386,
+      "longitude": -123.081
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0405001,
+      "longitude": -123.08352
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0376956,
+      "longitude": -123.088744
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1623,
+      "longitude": -123.1358
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0326289,
+      "longitude": -122.866392
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "New Westminster City Hall",
+    "location": {
+      "latitude": 49.2069215,
+      "longitude": -122.91108
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2786363,
+      "longitude": -123.1372036
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2814851,
+      "longitude": -123.1398422
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1863894,
+      "longitude": -122.850397
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1853184,
+      "longitude": -122.846724
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2768255,
+      "longitude": -123.1188266
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.291036,
+      "longitude": -123.1449559
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Electric Charging Station",
+    "location": {
+      "latitude": 49.2537233,
+      "longitude": -123.0001406
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Electric Charging Station",
+    "location": {
+      "latitude": 49.2512216,
+      "longitude": -123.0039381
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Electric Charging Station",
+    "location": {
+      "latitude": 49.2464535,
+      "longitude": -123.004119
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2760187,
+      "longitude": -123.0712507
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2826709,
+      "longitude": -123.124238
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2624543,
+      "longitude": -123.1137326
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1936706,
+      "longitude": -123.1678327
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1936881,
+      "longitude": -123.167905
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1939401,
+      "longitude": -123.1697835
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2588778,
+      "longitude": -123.2224137
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2821222,
+      "longitude": -123.112999
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2821862,
+      "longitude": -123.1128941
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Memorial Peace Park",
+    "location": {
+      "latitude": 49.2194217,
+      "longitude": -122.6012901
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Haney Place",
+    "location": {
+      "latitude": 49.2203566,
+      "longitude": -122.5988275
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1748486,
+      "longitude": -123.071317
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1738469,
+      "longitude": -123.072261
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1733908,
+      "longitude": -123.069885
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1724975,
+      "longitude": -123.070545
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.0380865,
+      "longitude": -123.082655
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1331473,
+      "longitude": -123.094909
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1749071,
+      "longitude": -123.072193
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1764283,
+      "longitude": -123.071446
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1095463,
+      "longitude": -122.6818945
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0425154,
+      "longitude": -123.0815866
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.0409547,
+      "longitude": -123.089421
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1470634,
+      "longitude": -123.009018
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1464608,
+      "longitude": -123.0087301
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1443218,
+      "longitude": -123.014823
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0150469,
+      "longitude": -123.041613
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1051437,
+      "longitude": -122.69046
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Vancouver - Kerrisdale",
+    "location": {
+      "latitude": 49.235905,
+      "longitude": -123.1553445
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "City of Delta - Ladner Leisure Centre",
+    "location": {
+      "latitude": 49.0868773,
+      "longitude": -123.058758
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2032248,
+      "longitude": -123.1331767
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.7025271,
+      "longitude": -123.1505231
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.0294736,
+      "longitude": -122.2852676
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0484139,
+      "longitude": -122.2640238
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0443904,
+      "longitude": -122.298934
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0685191,
+      "longitude": -122.2550499
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.0478997,
+      "longitude": -122.261751
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0572649,
+      "longitude": -122.3150824
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0572339,
+      "longitude": -122.3146096
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1013527,
+      "longitude": -123.1706722
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2257169,
+      "longitude": -123.013
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1322113,
+      "longitude": -123.098865
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0071874,
+      "longitude": -123.046938
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0624575,
+      "longitude": -122.6963576
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "eBike Charging Station",
+    "location": {
+      "latitude": 49.3362093,
+      "longitude": -123.0926395
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Horseshoe Bay - Bruce Street Charging Station",
+    "location": {
+      "latitude": 49.3737154,
+      "longitude": -123.275119
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.1922892,
+      "longitude": -122.806056
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.2343195,
+      "longitude": -122.86237
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.3277949,
+      "longitude": -123.070874
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1633599,
+      "longitude": -122.6409048
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0358985,
+      "longitude": -123.066241
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0355661,
+      "longitude": -123.068096
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2864576,
+      "longitude": -122.790446
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.231805,
+      "longitude": -123.0132664
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2009504,
+      "longitude": -122.9161744
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0338516,
+      "longitude": -122.3381284
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0339005,
+      "longitude": -122.3381254
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2829916,
+      "longitude": -122.830568
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2826287,
+      "longitude": -123.0004187
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2168562,
+      "longitude": -122.9859716
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.371295,
+      "longitude": -123.0986533
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2455361,
+      "longitude": -122.973899
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Electrify Canada",
+    "location": {
+      "latitude": 49.7387783,
+      "longitude": -123.1341522
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.1700034,
+      "longitude": -123.1388195
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2283219,
+      "longitude": -123.0057332
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2281593,
+      "longitude": -123.0053658
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.1417126,
+      "longitude": -121.9638273
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.1926317,
+      "longitude": -122.7884763
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.0566646,
+      "longitude": -122.8017641
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2699048,
+      "longitude": -123.146095
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.204839,
+      "longitude": -123.024142
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.3373962,
+      "longitude": -123.0384983
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1338238,
+      "longitude": -122.6694811
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Fast Charging Station",
+    "location": {
+      "latitude": 49.2583821,
+      "longitude": -123.034707
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2541844,
+      "longitude": -122.998954
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2490933,
+      "longitude": -123.00584
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2459778,
+      "longitude": -123.0038267
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2459468,
+      "longitude": -123.0038253
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Petro-Canada",
+    "location": {
+      "latitude": 49.040816,
+      "longitude": -122.2210145
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.241836,
+      "longitude": -122.969814
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Flo Charging Station",
+    "location": {
+      "latitude": 49.0551676,
+      "longitude": -122.8850654
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2668744,
+      "longitude": -123.0013275
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Electric Vehicle Charging Station",
+    "location": {
+      "latitude": 49.1450571,
+      "longitude": -122.649147
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2215881,
+      "longitude": -122.947937
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2590521,
+      "longitude": -123.0309238
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "SWTCH Energy",
+    "location": {
+      "latitude": 49.032648,
+      "longitude": -122.8035542
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint (EA employees only)",
+    "location": {
+      "latitude": 49.2659821,
+      "longitude": -123.081879
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2552114,
+      "longitude": -122.9941038
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2550995,
+      "longitude": -122.9941641
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1052389,
+      "longitude": -122.7409799
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2436748,
+      "longitude": -123.1065773
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2552274,
+      "longitude": -123.015034
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.263935,
+      "longitude": -123.0045373
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2529774,
+      "longitude": -122.9655347
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.290402,
+      "longitude": -122.8459126
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.3027012,
+      "longitude": -121.7830656
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.3026751,
+      "longitude": -121.7830663
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Queen\u2019s Park Rose Garden",
+    "location": {
+      "latitude": 49.2155707,
+      "longitude": -122.906761
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2428591,
+      "longitude": -122.973968
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2150783,
+      "longitude": -123.0323448
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2455864,
+      "longitude": -122.972872
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.0478499,
+      "longitude": -122.261748
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Destination Charger",
+    "location": {
+      "latitude": 49.3031072,
+      "longitude": -121.7885159
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.3031524,
+      "longitude": -121.7885042
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.2876929,
+      "longitude": -123.1153248
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2338396,
+      "longitude": -122.8665236
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2787678,
+      "longitude": -122.8025746
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "GE Wattstation",
+    "location": {
+      "latitude": 49.2285319,
+      "longitude": -122.8483272
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1171729,
+      "longitude": -122.676214
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2302337,
+      "longitude": -122.8063252
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1907951,
+      "longitude": -123.153836
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1908414,
+      "longitude": -123.153836
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1908871,
+      "longitude": -123.153836
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.190934,
+      "longitude": -123.1538361
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1350699,
+      "longitude": -122.304927
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1352121,
+      "longitude": -122.305138
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1352123,
+      "longitude": -122.305206
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1294315,
+      "longitude": -122.318993
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.189978,
+      "longitude": -123.0790816
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1899786,
+      "longitude": -123.0788933
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1181816,
+      "longitude": -122.6693699
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1152863,
+      "longitude": -122.677294
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2514163,
+      "longitude": -122.8942365
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2513711,
+      "longitude": -122.8942314
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0661358,
+      "longitude": -122.3799851
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2531531,
+      "longitude": -122.969559
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Langley City Square Wesgroup",
+    "location": {
+      "latitude": 49.1117529,
+      "longitude": -122.6712184
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1254387,
+      "longitude": -122.7067498
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Langley City Square Wesgroup",
+    "location": {
+      "latitude": 49.1116685,
+      "longitude": -122.6714539
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Langley City Square Wesgroup",
+    "location": {
+      "latitude": 49.1117112,
+      "longitude": -122.6713333
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Langley City Square Wesgroup",
+    "location": {
+      "latitude": 49.1116908,
+      "longitude": -122.6713939
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Langley City Square Wesgroup",
+    "location": {
+      "latitude": 49.1117292,
+      "longitude": -122.6712832
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1661024,
+      "longitude": -121.952911
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.166594,
+      "longitude": -121.961889
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.100608,
+      "longitude": -121.9740359
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.1416481,
+      "longitude": -121.9647162
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.028338,
+      "longitude": -122.8025323
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2956105,
+      "longitude": -122.7012817
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0527699,
+      "longitude": -122.3295677
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "SWTCH",
+    "location": {
+      "latitude": 49.0543144,
+      "longitude": -122.3271339
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "SWTCH",
+    "location": {
+      "latitude": 49.0543014,
+      "longitude": -122.3271332
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "SWTCH",
+    "location": {
+      "latitude": 49.0542884,
+      "longitude": -122.3271325
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "SWTCH",
+    "location": {
+      "latitude": 49.0542776,
+      "longitude": -122.3271319
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "SWTCH",
+    "location": {
+      "latitude": 49.0542655,
+      "longitude": -122.3271313
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "SWTCH",
+    "location": {
+      "latitude": 49.0542511,
+      "longitude": -122.3271305
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.0910513,
+      "longitude": -122.609426
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.091026,
+      "longitude": -122.60936
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.095419,
+      "longitude": -122.6108355
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2238236,
+      "longitude": -122.9956862
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2237962,
+      "longitude": -122.9956266
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2792768,
+      "longitude": -122.848127
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.275941,
+      "longitude": -122.8570267
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.3591975,
+      "longitude": -123.1066665
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2823485,
+      "longitude": -122.83051
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2838816,
+      "longitude": -122.831016
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1418745,
+      "longitude": -121.9582837
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2742853,
+      "longitude": -123.098438
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2311365,
+      "longitude": -122.6875743
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.10716,
+      "longitude": -122.7343227
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "New Westminster Centre Charger",
+    "location": {
+      "latitude": 49.2007109,
+      "longitude": -122.9143202
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.1785957,
+      "longitude": -123.1229238
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Supercharger",
+    "location": {
+      "latitude": 49.2205962,
+      "longitude": -122.6007694
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.11548,
+      "longitude": -122.6743883
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.115511,
+      "longitude": -122.6743877
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1155402,
+      "longitude": -122.6743872
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.115567,
+      "longitude": -122.6743867
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.0917503,
+      "longitude": -123.0871679
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.0898599,
+      "longitude": -123.0788757
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1494708,
+      "longitude": -121.9481416
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.1585061,
+      "longitude": -121.951746
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.1584726,
+      "longitude": -121.9517462
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.1584301,
+      "longitude": -121.9517448
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.1718055,
+      "longitude": -121.9523486
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.1717711,
+      "longitude": -121.9523317
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.1718967,
+      "longitude": -121.9520001
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.1718592,
+      "longitude": -121.9519801
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1706604,
+      "longitude": -121.9506693
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1706326,
+      "longitude": -121.9506951
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1706093,
+      "longitude": -121.9507185
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1705824,
+      "longitude": -121.9507497
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.1711126,
+      "longitude": -121.954954
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1661015,
+      "longitude": -121.953088
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1661024,
+      "longitude": -121.9530491
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1661033,
+      "longitude": -121.9530049
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1661011,
+      "longitude": -121.952962
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1661024,
+      "longitude": -121.9528775
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.3406064,
+      "longitude": -123.2395975
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "New West Secondary School Charger",
+    "location": {
+      "latitude": 49.2159272,
+      "longitude": -122.926969
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0283928,
+      "longitude": -122.2667532
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0364877,
+      "longitude": -122.2925703
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.036535,
+      "longitude": -122.2925703
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0364344,
+      "longitude": -122.2925692
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2042733,
+      "longitude": -122.9087597
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Queens Park Skate Park",
+    "location": {
+      "latitude": 49.2138748,
+      "longitude": -122.904716
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2030686,
+      "longitude": -122.906698
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2084883,
+      "longitude": -122.9149713
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2060987,
+      "longitude": -122.9559615
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2436816,
+      "longitude": -123.1065512
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2436916,
+      "longitude": -123.1065234
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "SWTCH",
+    "location": {
+      "latitude": 49.0500771,
+      "longitude": -122.3241057
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "SWTCH",
+    "location": {
+      "latitude": 49.0500277,
+      "longitude": -122.3241052
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2038115,
+      "longitude": -122.9158925
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Staff Charging Station",
+    "location": {
+      "latitude": 49.2042685,
+      "longitude": -122.9172363
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1916836,
+      "longitude": -122.5521696
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1324628,
+      "longitude": -122.3345673
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1324624,
+      "longitude": -122.3344742
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.1339922,
+      "longitude": -122.3410871
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.0586726,
+      "longitude": -122.3357268
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.2604301,
+      "longitude": -123.0701965
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2217322,
+      "longitude": -122.9984405
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2217705,
+      "longitude": -122.9065807
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Rosemary Brown Arena",
+    "location": {
+      "latitude": 49.2082252,
+      "longitude": -122.9494278
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.1124905,
+      "longitude": -122.665612
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1633202,
+      "longitude": -122.6401532
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1632737,
+      "longitude": -122.6401528
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.1703121,
+      "longitude": -122.898817
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.1702782,
+      "longitude": -122.8988182
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2747232,
+      "longitude": -121.7095374
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0442584,
+      "longitude": -122.7782606
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1465128,
+      "longitude": -122.6675499
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2209957,
+      "longitude": -122.6678181
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1522965,
+      "longitude": -122.7633372
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1455186,
+      "longitude": -122.9134759
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1623754,
+      "longitude": -122.8427821
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1933418,
+      "longitude": -122.8041069
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2011614,
+      "longitude": -122.8716041
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.272871,
+      "longitude": -122.7936374
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1774773,
+      "longitude": -122.7559091
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2016659,
+      "longitude": -122.8714826
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1796043,
+      "longitude": -123.1395735
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.1939319,
+      "longitude": -122.8040238
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2344581,
+      "longitude": -122.8571718
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2098062,
+      "longitude": -123.098692
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.279404,
+      "longitude": -122.9660443
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2536937,
+      "longitude": -123.23714
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.2827664,
+      "longitude": -123.1125368
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2657794,
+      "longitude": -123.0089286
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Tesla Supercharger",
+    "location": {
+      "latitude": 49.3210823,
+      "longitude": -123.0949696
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.0565456,
+      "longitude": -121.9661212
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2471203,
+      "longitude": -123.1251457
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "FLO",
+    "location": {
+      "latitude": 49.2839755,
+      "longitude": -123.1080873
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 49.042285,
+      "longitude": -122.2221526
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "ChargePoint",
+    "location": {
+      "latitude": 49.1640286,
+      "longitude": -123.1372847
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "southwest"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 57.0428201,
+      "longitude": -122.5123364
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "northeast"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 56.2441598,
+      "longitude": -120.8752098
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "northeast"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 56.7277219,
+      "longitude": -121.8073028
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "northeast"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 55.1250848,
+      "longitude": -120.9982499
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "northeast"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 56.0288556,
+      "longitude": -121.9094125
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "northeast"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 55.6953003,
+      "longitude": -121.638767
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "northeast"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 55.3407039,
+      "longitude": -123.0962311
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "northeast"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 55.7594409,
+      "longitude": -120.2268655
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "northeast"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 55.3936304,
+      "longitude": -122.6259229
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "northeast"
+  },
+  {
+    "name": "Unnamed Station",
+    "location": {
+      "latitude": 55.7419516,
+      "longitude": -120.2225567
+    },
+    "tags": {
+      "amenity": "charging_station"
+    },
+    "region": "northeast"
+  }
+]
