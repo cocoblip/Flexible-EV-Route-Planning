@@ -70,6 +70,6 @@ These packages enhance functionality or improve performance:
 2. pip install -r requirements.txt to install dependencies
 3. Run the `app.py` file.  
 4. Copy and paste the generated URL into your browser.  
-5. Enter the starting point, destination, and other custom parameters in the input fields.  
+5. Enter the starting point, destination, and other custom parameters in the input fields. Please choose 2 addresses in Create Vancouver. 
 6. Click the **Generate Route** button.  
 7. Wait for the visualized map to be generated.
