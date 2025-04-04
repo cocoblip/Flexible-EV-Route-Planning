@@ -29,7 +29,9 @@ This project implements an advanced route planning system for electric vehicles 
 - [app.py] - Flask web server that provides an API for the route planning functionality. Handles user requests, processes route planning parameters, executes the planning algorithm, and serves the generated route visualizations.
 - [index.html] - Frontend interface that allows users to input route parameters (start/end locations, battery settings) through a user-friendly web form. Communicates with the Flask backend and displays the resulting route maps.
 
-#### 2.4 Generated Data Files (3 json files already provided)
+#### 2.4 Generated Data Files (3 json files are shared on google drive)
+You can directly download it, which will save you 30 hours of code runtime.
+https://drive.google.com/drive/folders/1tJ-hupmy-jRwhjazsb-d11Hny7CGkxss?usp=drive_link
 - [charging_stations_bc_regions.json] - Contains charging station locations and details.
 - [roads_bc_regions.json] - Contains road network graph with nodes (intersections) and edges (road segments).
 - [intersections_bc_regions.json] - Contains pre-calculated data mapping each intersection to its nearest charging station.
