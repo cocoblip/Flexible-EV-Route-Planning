@@ -1,0 +1,11 @@
+flask
+folium
+osmnx
+networkx
+shapely
+requests
+matplotlib
+numpy
+pandas
+geopandas
+rtree 
