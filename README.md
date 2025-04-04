@@ -27,7 +27,7 @@ This project implements an advanced route planning system for electric vehicles 
 
 #### 2.3 Web Application
 - [app.py] - Flask web server that provides an API for the route planning functionality. Handles user requests, processes route planning parameters, executes the planning algorithm, and serves the generated route visualizations.
-- [index.html] - Frontend interface that allows users to input route parameters (start/end locations, battery settings) through a user-friendly web form. Communicates with the Flask backend and displays the resulting route maps.
+- [index.html] in templates folder - Frontend interface that allows users to input route parameters (start/end locations, battery settings) through a user-friendly web form. Communicates with the Flask backend and displays the resulting route maps.
 
 #### 2.4 Generated Data Files (3 json files are shared on google drive)
 You can directly download it, which will save you 30 hours of code runtime.
