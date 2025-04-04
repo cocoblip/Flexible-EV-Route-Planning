@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Route Planner</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        #container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+        }
+        #form-section {
+            width: 30%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        #map-section {
+            width: 100%;
+            padding-left: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        #generate-button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        #generate-button:hover {
+            background-color: #218838;
+        }
+        #clear-button {
+            background-color: #6c757d;
+            color: white;
+            cursor: pointer;
+        }
+        #clear-button:hover {
+            background-color: #5a6268;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>EV Route Planner</h1>
+
+<div id="container">
+    <div id="form-section">
+        <form id="route-form">
+            <label for="start">Starting Location:</label>
+            <input type="text" id="start" name="start" required>
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required>
+
+            <label for="initial_soc">Initial Battery Percentage (%):</label>
+            <input type="number" id="initial_soc" name="initial_soc" required min="0" max="100" step="0.1">
+
+            <label for="threshold_soc">Threshold Battery Percentage (%):</label>
+            <input type="number" id="threshold_soc" name="threshold_soc" required min="0" max="100" step="0.1">
+
+            <label for="consumption_rate">Consumption Rate (% per km):</label>
+            <input type="number" id="consumption_rate" name="consumption_rate" required min="0" step="0.1">
+
+            <div class="button-row">
+                <button type="button" id="clear-button">Clear Form</button>
+                <button type="submit" id="generate-button">Generate Route</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="map-section">
+        <iframe id="map-frame" src=""></iframe>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        const defaultGenerateColor = '#28a745';
+        const clickedGenerateColor = 'red';
+
+        $("#route-form").submit(function (event) {
+            event.preventDefault();
+
+            // Change color on click
+            $("#generate-button").css("background-color", clickedGenerateColor);
+
+            $.ajax({
+                type: "POST",
+                url: "/generate-route",
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.success) {
+                        let timestamp = new Date().getTime();
+                        let updatedURL = response.map_url + "?t=" + timestamp; // Prevent caching
+                        $("#map-frame").attr("src", updatedURL).show();
+                    } else {
+                        alert("Error: " + response.error);
+                    }
+                },
+                error: function () {
+                    alert("Failed to connect to the server.");
+                }
+            });
+        });
+
+        $("#clear-button").click(function () {
+            $("#route-form")[0].reset();       
+            $("#generate-button").css("background-color", defaultGenerateColor); 
+            $("#map-frame").hide();                          
+        });
+    });
+</script>
+
+</body>
+</html>
