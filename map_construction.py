@@ -415,9 +415,8 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
             end_coords = geocode_address(end_address + ", BC, Canada")
             
             if not start_coords or not end_coords:
-                print("Geocoding failed. Using default coordinates.")
-                start_coords = (49.2606, -123.2460)  
-                end_coords = (49.1666, -123.1361)  
+                print("Geocoding failed. Invalid address entered.")
+                return None, None, None, None, "invalid_address"  
             
             start_lat, start_lon = start_coords
             end_lat, end_lon = end_coords
@@ -637,13 +636,13 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
         
         else:
             print("BC region data not found. Please load it first.")
-            return None, None, None, None
+            return None, None, None, None, "error"
             
     except Exception as e:
         print(f"General error: {str(e)}")
         import traceback
         traceback.print_exc()
-        return None, None, None, None
+        return None, None, None, None, "invalid_address"
 
 def load_bc_province_data():
     """

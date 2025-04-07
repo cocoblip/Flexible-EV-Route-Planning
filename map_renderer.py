@@ -135,13 +135,24 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, start_po
         if not coords:
             continue
         
+        # folium.PolyLine(
+        #     coords,
+        #     color=color,
+        #     weight=4,
+        #     opacity=0.8,
+        #     tooltip=f"Path {i+1}: {cost['time']:.1f}s, {cost['safety']/1000:.2f}km"
+        # ).add_to(m)
+        group_name = f"Path {i+1}: {int(cost['time']//60)}m {int(cost['time']%60)}s, {cost['safety']/1000:.2f} km"
+        feature_group = folium.FeatureGroup(name=group_name)
+
+        # Route line
         folium.PolyLine(
             coords,
             color=color,
             weight=4,
             opacity=0.8,
-            tooltip=f"Path {i+1}: {cost['time']:.1f}s, {cost['safety']/1000:.2f}km"
-        ).add_to(m)
+            tooltip=group_name
+        ).add_to(feature_group)
         
         max_dist = 0
         critical_node = None
@@ -160,7 +171,8 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, start_po
                 color=color,
                 fill=True,
                 popup=f'Critical point: {max_dist:.0f}m to nearest charging station'
-            ).add_to(m)
+            # ).add_to(m)
+            ).add_to(feature_group)
             
             if critical_node in nearest_stations:
                 station_info = nearest_stations[critical_node]
@@ -179,7 +191,8 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, start_po
                     weight=2,
                     dash_array='5,10',
                     popup=f'Distance to nearest station: {max_dist:.0f}m'
-                ).add_to(m)
+                # ).add_to(m)
+                ).add_to(feature_group)
                 
                 small_purple_icon = folium.DivIcon(
                     icon_size=(144, 144),
@@ -194,6 +207,7 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, start_po
                     icon=small_purple_icon
                 ).add_to(m)
         
+        feature_group.add_to(m)
         path_data.append({
             'color': color,
             'time': cost['time'],
@@ -221,12 +235,14 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, start_po
             icon=folium.Icon(icon="bolt", prefix="fa", color="purple", icon_color="white")
         ).add_to(m)
     
+    folium.LayerControl(collapsed=False).add_to(m)
+    
     legend_html = '''
     <div style="position: fixed; 
-                bottom: 50px; left: 50px; width: 300px; height: auto;
+                bottom: 50px; left: 50px; width: 200px; height: auto;
                 border:2px solid grey; z-index:9999; font-size:14px;
                 background-color:white; padding: 10px;
-                overflow-y: auto; max-height: 300px;">
+                overflow-y: auto; max-height: 200px;">
     <div style="font-weight: bold; margin-bottom: 10px;">Route Legend</div>
     '''
     
@@ -321,7 +337,12 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
     for i, (path, cost) in enumerate(zip(paths, costs)):
         section_info = path_sections[i]
         section = section_info['section']
+        index = section_info['index']
         
+        color = (section1_colors if section == 1 else section2_colors)[(index - 1) % 5]
+        group_name = f"Section {section} - Path {index}: {int(cost['time']//60)}m {int(cost['time']%60)}s, {cost['safety']/1000:.2f} km"
+        feature_group = folium.FeatureGroup(name=group_name)
+
         if section == 1:
             color = section1_colors[(section_info['index'] - 1) % len(section1_colors)]
         else:
@@ -345,7 +366,8 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
             weight=4,
             opacity=0.8,
             tooltip=section_info['description']
-        ).add_to(m)
+        # ).add_to(m)
+        ).add_to(feature_group)
         
         max_dist = 0
         critical_node = None
@@ -365,7 +387,8 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
                 color=color,
                 fill=True,
                 popup=f'Critical point: {max_dist:.0f}m to nearest charging station'
-            ).add_to(m)
+            # ).add_to(m)
+            ).add_to(feature_group)
             
             if critical_node in nearest_stations:
                 station_info = nearest_stations[critical_node]
@@ -387,7 +410,8 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
                     weight=2,
                     dash_array='5,10',
                     popup=f'Distance to nearest station: {max_dist:.0f}m'
-                ).add_to(m)
+                # ).add_to(m)
+                ).add_to(feature_group)
                 
                 purple_icon = folium.DivIcon(
                     icon_size=(144, 144),
@@ -402,6 +426,8 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
                     icon=purple_icon
                 ).add_to(m)
         
+        feature_group.add_to(m)
+
         path_data.append({
             'color': color,
             'time': cost['time'],
@@ -429,12 +455,14 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
             icon=folium.Icon(icon="bolt", prefix="fa", color="purple", icon_color="white")
         ).add_to(m)
     
+    folium.LayerControl(collapsed=False).add_to(m)
+
     legend_html = '''
     <div style="position: fixed; 
-                bottom: 50px; left: 50px; width: 300px; height: auto;
+                bottom: 50px; left: 50px; width: 200px; height: auto;
                 border:2px solid grey; z-index:9999; font-size:14px;
                 background-color:white; padding: 10px;
-                overflow-y: auto; max-height: 300px;">
+                overflow-y: auto; max-height: 200px;">
     <div style="font-weight: bold; margin-bottom: 10px;">Two-Segment Route Legend</div>
     <div style="margin-bottom: 5px;"><b>Section 1: Start to Charging Station</b></div>
     '''

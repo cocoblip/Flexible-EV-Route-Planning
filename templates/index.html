@@ -12,6 +12,8 @@
             flex-direction: column;
             align-items: center;
             margin: 20px;
+            background: #f4f7f9;
+            color: #333;
         }
         #container {
             display: flex;
@@ -23,7 +25,8 @@
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            background-color: #f9f9f9;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
         }
         #map-section {
             width: 100%;
@@ -33,12 +36,20 @@
             display: block;
             margin-top: 10px;
         }
-        input, button {
+        input, select {
             width: 100%;
             padding: 8px;
             margin-top: 5px;
             border: 1px solid #ddd;
             border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
         }
         .button-row {
             display: flex;
@@ -68,6 +79,26 @@
             border: none;
             display: none;
         }
+        @media (max-width: 768px) {
+            #container {
+                flex-direction: column;
+            }
+        
+            #form-section {
+                width: 70%;
+                padding: 10px 0;
+            }
+
+            #map-section {
+                width: 100%;
+                padding: 10px 0;
+            }
+        
+            iframe {
+                height: 400px;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -84,13 +115,30 @@
             <input type="text" id="destination" name="destination" required>
 
             <label for="initial_soc">Initial Battery Percentage (%):</label>
-            <input type="number" id="initial_soc" name="initial_soc" required min="0" max="100" step="0.1">
+            <input type="number" id="initial_soc" name="initial_soc" required min="0" max="100" step="0.01">
 
             <label for="threshold_soc">Threshold Battery Percentage (%):</label>
-            <input type="number" id="threshold_soc" name="threshold_soc" required min="0" max="100" step="0.1">
+            <input type="number" id="threshold_soc" name="threshold_soc" required min="0" max="100" step="0.01">
 
-            <label for="consumption_rate">Consumption Rate (% per km):</label>
-            <input type="number" id="consumption_rate" name="consumption_rate" required min="0" step="0.1">
+            <label for="ev_model">Select EV Model:</label>
+            <select id="ev_model" name="ev_model" required>
+                <option value="" disabled selected>Select your EV</option>
+                <option value="Tesla Model 3">Tesla Model 3 </option>
+                <option value="Mini Cooper SE">Mini Cooper SE </option>
+                <option value="Citroen e-C4 X">Citroen e-C4 X </option>
+                <option value="Tesla Model Y Long Range AWD">Tesla Model Y Long Range AWD </option>
+                <option value="Porsche Taycan 4S Plus">Porsche Taycan 4S Plus </option>
+                <option value="BMW i4 M50">BMW i4 M50 </option>
+                <option value="BMW i7 xDrive60">BMW i7 xDrive60 </option>
+                <option value="Rolls-Royce Spectre">Rolls-Royce Spectre </option>
+                <option value="VinFast VF 9 Extended Range">VinFast VF 9 Extended Range </option>
+                <option value="Toyota PROACE Verso M 50 kWh">Toyota PROACE Verso M 50 kWh </option>
+                <option value="Mercedes-Benz eVito Tourer Long 90 kWh">Mercedes-Benz eVito Tourer Long 90 kWh </option>
+                <option value="Mercedes-Benz G 580">Mercedes-Benz G 580 </option>
+            </select>
+
+            <!-- Hidden field for sending consumption rate -->
+            <input type="hidden" id="consumption_rate" name="consumption_rate">
 
             <div class="button-row">
                 <button type="button" id="clear-button">Clear Form</button>
@@ -100,6 +148,12 @@
     </div>
 
     <div id="map-section">
+        <div id="loading-message" style="display: none; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); font-size: 18px; font-weight: bold; color: #444;
+            background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; z-index: 10;
+            text-align: center;">
+            🛠️ Generating map... Please wait.
+        </div>
         <iframe id="map-frame" src=""></iframe>
     </div>
 </div>
@@ -109,17 +163,48 @@
         const defaultGenerateColor = '#28a745';
         const clickedGenerateColor = 'red';
 
+        const evConsumptionRates = {
+            "Tesla Model 3": 0.137,
+            "Mini Cooper SE": 0.149,
+            "Citroen e-C4 X": 0.157,
+            "Tesla Model Y Long Range AWD": 0.167,
+            "Porsche Taycan 4S Plus": 0.172,
+            "BMW i4 M50": 0.181,
+            "BMW i7 xDrive60": 0.199,
+            "Rolls-Royce Spectre": 0.219,
+            "VinFast VF 9 Extended Range": 0.239,
+            "Toyota PROACE Verso M 50 kWh": 0.257,
+            "Mercedes-Benz eVito Tourer Long 90 kWh": 0.281,
+            "Mercedes-Benz G 580": 0.322,
+        };
+    
+        $("#ev_model").change(function () {
+            const selectedModel = $(this).val();
+            const rate = evConsumptionRates[selectedModel];
+            $("#consumption_rate").val(rate);
+        });
+
         $("#route-form").submit(function (event) {
             event.preventDefault();
 
+            const initialSOC = parseFloat($("#initial_soc").val());
+            const thresholdSOC = parseFloat($("#threshold_soc").val());
+
+            if (thresholdSOC > initialSOC) {
+                alert("⚠️ Threshold battery percentage cannot be greater than Initial battery percentage.");
+                return;
+            }           
+
             // Change color on click
             $("#generate-button").css("background-color", clickedGenerateColor);
+            $("#loading-message").show();
 
             $.ajax({
                 type: "POST",
                 url: "/generate-route",
                 data: $(this).serialize(),
                 success: function (response) {
+                    $("#loading-message").hide();
                     if (response.success) {
                         let timestamp = new Date().getTime();
                         let updatedURL = response.map_url + "?t=" + timestamp; // Prevent caching
@@ -129,6 +214,7 @@
                     }
                 },
                 error: function () {
+                    $("#loading-message").hide();
                     alert("Failed to connect to the server.");
                 }
             });

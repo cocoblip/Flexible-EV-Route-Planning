@@ -17,9 +17,14 @@ def generate_route():
         threshold_soc = float(request.form["threshold_soc"])
         consumption_rate = float(request.form["consumption_rate"])
         
-        road_network, charging_stations, paths, costs, map_filname = map_construction.test_route_planning(start, destination, initial_soc, threshold_soc, consumption_rate)
+        road_network, charging_stations, paths, costs, map_filename_or_status = map_construction.test_route_planning(
+            start, destination, initial_soc, threshold_soc, consumption_rate
+        )
 
-        expected_map_filename = map_filname
+        if map_filename_or_status == "invalid_address":
+            return jsonify({"success": False, "error": "Invalid address entered. Please check your start or destination address."})
+
+        expected_map_filename = map_filename_or_status
         
         if paths is None:
             return jsonify({"success": False, "error": "No valid paths found."})
