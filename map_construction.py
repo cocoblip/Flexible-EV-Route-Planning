@@ -14,6 +14,11 @@ import map_renderer
 
 SAFETY_FACTOR = 0.9
 
+
+_cached_road_network = None
+_cached_charging_stations = None
+_cached_intersections = None
+
 def haversine_distance(lat1, lon1, lat2, lon2):
     """
     Calculate the great circle distance between two points 
@@ -25,7 +30,7 @@ def haversine_distance(lat1, lon1, lat2, lon2):
     dlat = lat2 - lat1
     a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
     c = 2 * atan2(sqrt(a), sqrt(1-a))
-    distance = 6371000 * c  
+    distance = 6371000 * c
     
     return distance
 
@@ -54,16 +59,7 @@ def find_nearest_charging_station(node_lat, node_lon, charging_stations):
 
 def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, initial_soc=100, threshold_soc=20, energy_consumption=0.2):
     """
-    Find Pareto-optimal paths using Vancouver version's algorithm
-    Uses priority queue-based A* search with state space exploration
-    
-    G: road network graph
-    nearest_stations: dictionary mapping node IDs to nearest charging station info
-    start_node, end_node: start and end nodes in the graph
-    max_paths: maximum number of Pareto-optimal paths to return
-    initial_soc: initial state of charge (percentage)
-    threshold_soc: threshold state of charge (percentage)
-    energy_consumption: energy consumption rate (percentage per km)
+    Find Pareto-optimal paths using A* search with state space exploration
     """
     def heuristic(node):
         """Estimate remaining time to goal using Euclidean distance and average speed"""
@@ -85,13 +81,11 @@ def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, i
             return 0  
     
     frontier = PriorityQueue()
-    weights = [(0.5, 0.5)]
     
-    for w_time, w_charge in weights:
-        h_score = heuristic(start_node)
-        f_score = w_time * h_score  
-        
-        frontier.put((f_score, 0, 0, start_node, [start_node], w_time, w_charge))
+    h_score = heuristic(start_node)
+    f_score = h_score
+    
+    frontier.put((f_score, 0, 0, start_node, [start_node]))
     
     pareto_paths = []
     pareto_costs = []
@@ -138,7 +132,7 @@ def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, i
         visited[node] = new_states
     
     while not frontier.empty() and len(pareto_paths) < max_paths:
-        f_score, total_time, max_charging_dist, current, path, w_time, w_charge = frontier.get()
+        f_score, total_time, max_charging_dist, current, path = frontier.get()
         
         if is_state_dominated(current, total_time, max_charging_dist):
             continue
@@ -302,12 +296,10 @@ def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, i
                 excess = new_max_charging_dist - 10000
                 safety_score = 1.0 + 0.5 * math.log10(1 + excess / 10000)  
             
-            f_score = (w_time * ((new_total_time + h_score) / time_norm) + 
-                      w_charge * safety_score)
+            f_score = ((new_total_time + h_score) / time_norm) + safety_score
             
             new_path = path + [neighbor]
-            frontier.put((f_score, new_total_time, new_max_charging_dist, 
-                        neighbor, new_path, w_time, w_charge))
+            frontier.put((f_score, new_total_time, new_max_charging_dist, neighbor, new_path))
     
     if len(pareto_paths) == 0 and infeasible_paths_info:
         stations_dict = {}
@@ -353,61 +345,17 @@ def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, i
 
 def test_route_planning(start_address, end_address, initial_soc, threshold_soc, energy_consumption):
     """
-    Test route planning with existing data
+    Test route planning with given parameters
     """
     try:
+        road_network, charging_stations, intersections = load_bc_province_data()
         
-        print(f"Planning route from {start_address} to {end_address}")
-        print(f"Battery settings: initial SOC: {initial_soc}%, threshold: {threshold_soc}%, consumption: {energy_consumption}%/km")
-        
-        bc_files_exist = all(os.path.exists(f) for f in [
-            'roads_bc_regions.json', 
-            'charging_stations_bc_regions.json', 
-            'intersections_bc_regions.json'
-        ])
-        
-        if bc_files_exist:
-            print("Using BC region data...")
-            
-            with open('roads_bc_regions.json', 'r', encoding='utf-8') as f:
-                road_data = json.load(f)
-            
-            road_network = nx.MultiDiGraph()
-            
-            for node_id, node_data in road_data['nodes'].items():
-                road_network.add_node(int(node_id) if node_id.isdigit() else node_id, **node_data)
-            
-            for edge in road_data['edges']:
-                source = int(edge['source']) if edge['source'].isdigit() else edge['source']
-                target = int(edge['target']) if edge['target'].isdigit() else edge['target']
-                key = edge['key']
-                
-                edge_data = {k: v for k, v in edge.items() if k not in ['source', 'target', 'key']}
-                
-                if 'travel_time' not in edge_data:
-                    if 'length' in edge_data:
-                        length = edge_data['length'] 
-                        speed = 13.89  
-                        edge_data['travel_time'] = length / speed  
-                    else:
-                        edge_data['travel_time'] = 60  
-                
-                road_network.add_edge(source, target, key=key, **edge_data)
-            
-            print(f"Loaded road network with {len(road_network.nodes)} nodes and {len(road_network.edges)} edges")
-            
-            with open('charging_stations_bc_regions.json', 'r') as f:
-                charging_stations = json.load(f)
-            
-            print(f"Loaded {len(charging_stations)} charging stations")
-            
-            with open('intersections_bc_regions.json', 'r') as f:
-                intersections = json.load(f)
-            
-            print(f"Loaded {len(intersections)} intersections")
+        if road_network and charging_stations and intersections:
+            print(f"Planning route from {start_address} to {end_address}")
+            print(f"Battery settings: initial SOC: {initial_soc}%, threshold: {threshold_soc}%, consumption: {energy_consumption}%/km")
             
             if 'crs' not in road_network.graph:
-                road_network.graph['crs'] = 'epsg:4326' 
+                road_network.graph['crs'] = 'epsg:4326'
             
             print(f"\nGeocoding start address: {start_address}")
             start_coords = geocode_address(start_address + ", BC, Canada")
@@ -415,21 +363,25 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
             end_coords = geocode_address(end_address + ", BC, Canada")
             
             if not start_coords or not end_coords:
-                print("Geocoding failed. Invalid address entered.")
-                return None, None, None, None, "invalid_address"  
+                print("Error: Could not geocode one or both addresses.")
+                return None, None, None, None, "invalid_address"
             
             start_lat, start_lon = start_coords
             end_lat, end_lon = end_coords
             
-            print(f"Start coordinates: {start_lat:.4f}, {start_lon:.4f}")
-            print(f"End coordinates: {end_lat:.4f}, {end_lon:.4f}")
+            print(f"Start coordinates: ({start_lat}, {start_lon})")
+            print(f"End coordinates: ({end_lat}, {end_lon})")
             
-            print("Finding nearest nodes...")
+            print("\nFinding nearest nodes in the road network...")
             start_node, start_dist = find_nearest_node(road_network, start_lat, start_lon)
             end_node, end_dist = find_nearest_node(road_network, end_lat, end_lon)
             
-            print(f"Found start node at distance {start_dist:.2f}m")
-            print(f"Found end node at distance {end_dist:.2f}m")
+            if start_node is None or end_node is None:
+                print("Error: Could not find nodes in the road network close to the provided coordinates.")
+                return None, None, None, None, "invalid_address"
+            
+            print(f"Start node: {start_node} (distance: {start_dist:.2f}m)")
+            print(f"End node: {end_node} (distance: {end_dist:.2f}m)")
             
             nearest_stations = {}
             road_network_nodes = set(road_network.nodes())
@@ -644,10 +596,23 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
         traceback.print_exc()
         return None, None, None, None, "invalid_address"
 
-def load_bc_province_data():
+def load_bc_province_data(force_reload=False):
     """
-    Load BC province data files from local storage
+    Load BC province data files from local storage with caching
+    
+    Parameters:
+    force_reload (bool): Whether to force reload data even if cached
+    
+    Returns:
+    Tuple of (road_network, charging_stations, intersections)
     """
+    global _cached_road_network, _cached_charging_stations, _cached_intersections
+    
+
+    if not force_reload and _cached_road_network is not None and _cached_charging_stations is not None and _cached_intersections is not None:
+        print("Using cached data (road network, charging stations, intersections)")
+        return _cached_road_network, _cached_charging_stations, _cached_intersections
+    
     print("Loading BC province data from local files...")
     
     bc_files_exist = all(os.path.exists(f) for f in [
@@ -706,6 +671,11 @@ def load_bc_province_data():
             intersections = json.load(f)
         
         print(f"Loaded {len(intersections)} intersections")
+        
+
+        _cached_road_network = road_network
+        _cached_charging_stations = charging_stations
+        _cached_intersections = intersections
         
         return road_network, charging_stations, intersections
         
