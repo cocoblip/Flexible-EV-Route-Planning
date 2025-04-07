@@ -238,11 +238,10 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, start_po
     folium.LayerControl(collapsed=False).add_to(m)
     
     legend_html = '''
-    <div style="position: fixed; 
-                bottom: 50px; left: 50px; width: 200px; height: auto;
+    <div style="bottom: 50px; left: 50px; width: 200px; height: auto;
                 border:2px solid grey; z-index:9999; font-size:14px;
                 background-color:white; padding: 10px;
-                overflow-y: auto; max-height: 200px;">
+                overflow-y: auto; max-height: 400px;">
     <div style="font-weight: bold; margin-bottom: 10px;">Route Legend</div>
     '''
     
@@ -270,11 +269,11 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, start_po
     
     legend_html += '</div>'
     
-    m.get_root().html.add_child(folium.Element(legend_html))
+    # m.get_root().html.add_child(folium.Element(legend_html))
     
     m.save(map_filename)
     print(f"\nMap with paths saved as {map_filename}")
-    return m
+    return m, legend_html
 
 def display_two_segment_paths(G, charging_stations, paths, costs, path_sections, start_point, end_point, 
                              nearest_stations, map_filename, initial_soc, energy_consumption, threshold_soc=20,
@@ -458,11 +457,10 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
     folium.LayerControl(collapsed=False).add_to(m)
 
     legend_html = '''
-    <div style="position: fixed; 
-                bottom: 50px; left: 50px; width: 200px; height: auto;
+    <div style="bottom: 50px; left: 50px; width: 200px; height: auto;
                 border:2px solid grey; z-index:9999; font-size:14px;
                 background-color:white; padding: 10px;
-                overflow-y: auto; max-height: 200px;">
+                overflow-y: auto; max-height: 400px;">
     <div style="font-weight: bold; margin-bottom: 10px;">Two-Segment Route Legend</div>
     <div style="margin-bottom: 5px;"><b>Section 1: Start to Charging Station</b></div>
     '''
@@ -517,10 +515,10 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
     
     legend_html += '</div>'
     
-    m.get_root().html.add_child(folium.Element(legend_html))
+    # m.get_root().html.add_child(folium.Element(legend_html))
     
     m.save(map_filename)
-    return m
+    return m, legend_html
 
 def update_html_with_section2(map_filename, G, section2_paths, section2_costs, 
                              charging_station_lat, charging_station_lon, end_lat, end_lon):

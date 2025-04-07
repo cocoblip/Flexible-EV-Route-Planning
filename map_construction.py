@@ -541,7 +541,7 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
                         
                         map_filename = f"route_{start_address}_to_{end_address}_two_segments.html"
                         try:
-                            map_renderer.display_two_segment_paths(
+                            m, legend_html = map_renderer.display_two_segment_paths(
                                 road_network, charging_stations, all_paths, all_costs, path_sections,
                                 {'latitude': start_lat, 'longitude': start_lon},
                                 {'latitude': end_lat, 'longitude': end_lon},
@@ -556,7 +556,7 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
                             )
                             print(f"\nMap with two-segment routes saved as {map_filename}")
                             
-                            return road_network, charging_stations, all_paths, all_costs, map_filename
+                            return road_network, charging_stations, all_paths, all_costs, map_filename, legend_html
                         except Exception as e:
                             print(f"Error creating two-segment map: {str(e)}")
                     else:
@@ -574,7 +574,7 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
             map_filename = f'pareto_paths_{start_address.replace(" ", "_")}_{end_address.replace(" ", "_")}.html'
                 
             try:
-                map_renderer.display_paths_on_map(road_network, charging_stations, paths, costs, 
+                m, legend_html = map_renderer.display_paths_on_map(road_network, charging_stations, paths, costs, 
                                    {'latitude': start_lat, 'longitude': start_lon},
                                    {'latitude': end_lat, 'longitude': end_lon},
                                    nearest_stations, map_filename, initial_soc, energy_consumption, threshold_soc)
@@ -584,7 +584,7 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
                 traceback.print_exc()
                 return None, None, None, None
             
-            return road_network, charging_stations, paths, costs, map_filename
+            return road_network, charging_stations, paths, costs, map_filename, legend_html
         
         else:
             print("BC region data not found. Please load it first.")

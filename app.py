@@ -17,7 +17,7 @@ def generate_route():
         threshold_soc = float(request.form["threshold_soc"])
         consumption_rate = float(request.form["consumption_rate"])
         
-        road_network, charging_stations, paths, costs, map_filename_or_status = map_construction.test_route_planning(
+        road_network, charging_stations, paths, costs, map_filename_or_status, legend_html = map_construction.test_route_planning(
             start, destination, initial_soc, threshold_soc, consumption_rate
         )
 
@@ -39,7 +39,7 @@ def generate_route():
         else:
             return jsonify({"success": False, "error": f"Map file {expected_map_filename} was not generated."})
 
-        return jsonify({"success": True, "map_url": "/" + static_map_path})
+        return jsonify({"success": True, "map_url": "/" + static_map_path, "legend_html": legend_html})
 
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})

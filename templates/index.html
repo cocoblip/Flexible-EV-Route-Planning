@@ -17,21 +17,32 @@
         }
         #container {
             display: flex;
-            width: 90%;
-            max-width: 1200px;
+            width: 95%;
+            max-width: 1500px;
         }
         #form-section {
-            width: 30%;
-            padding: 20px;
+            width: 20%;
+            padding: 25px;
             border: 1px solid #ddd;
             border-radius: 8px;
             background-color: #ffffff;
             box-shadow: 0 0 10px rgba(0,0,0,0.05);
         }
+        #map-legend-section {
+            display: flex;
+            width: 80%;
+        }
         #map-section {
-            width: 100%;
+            width: 75%;
             padding-left: 20px;
         }
+        #legend-section {
+            width: 15%;
+            padding-left: 10px;
+            font-size: 14px;
+            border-left: 1px solid #ccc;
+            margin-left: 10px;
+        }            
         label {
             display: block;
             margin-top: 10px;
@@ -39,9 +50,10 @@
         input, select {
             width: 100%;
             padding: 8px;
-            margin-top: 5px;
+            height: 40px;
             border: 1px solid #ddd;
             border-radius: 4px;
+            box-sizing: border-box;
         }
         button {
             width: 100%;
@@ -85,19 +97,25 @@
             }
         
             #form-section {
-                width: 70%;
-                padding: 10px 0;
-            }
-
-            #map-section {
                 width: 100%;
-                padding: 10px 0;
+            }
+        
+            #map-legend-section {
+                flex-direction: column;
+                width: 100%;
+            }
+        
+            #map-section,
+            #legend-section {
+                width: 100%;
+                padding-left: 0;
             }
         
             iframe {
                 height: 400px;
             }
         }
+        
         
     </style>
 </head>
@@ -147,14 +165,20 @@
         </form>
     </div>
 
-    <div id="map-section">
-        <div id="loading-message" style="display: none; position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%); font-size: 18px; font-weight: bold; color: #444;
-            background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; z-index: 10;
-            text-align: center;">
-            🛠️ Generating map... Please wait.
+    <div id="map-legend-section">
+        <div id="map-section">
+            <div id="loading-message" style="display: none; position: absolute; top: 50%; left: 50%;
+                transform: translate(-50%, -50%); font-size: 18px; font-weight: bold; color: #444;
+                background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; z-index: 10;
+                text-align: center;">
+                🛠️ Generating map... Please wait.
+            </div>
+            <iframe id="map-frame" src=""></iframe>
         </div>
-        <iframe id="map-frame" src=""></iframe>
+    
+        <div id="legend-section">
+        
+        </div>
     </div>
 </div>
 
@@ -194,6 +218,8 @@
                 alert("⚠️ Threshold battery percentage cannot be greater than Initial battery percentage.");
                 return;
             }           
+            // Disable button to prevent multiple submissions
+            $("#generate-button").prop("disabled", true);
 
             // Change color on click
             $("#generate-button").css("background-color", clickedGenerateColor);
@@ -205,16 +231,22 @@
                 data: $(this).serialize(),
                 success: function (response) {
                     $("#loading-message").hide();
+                    $("#generate-button").prop("disabled", false); 
+
                     if (response.success) {
                         let timestamp = new Date().getTime();
                         let updatedURL = response.map_url + "?t=" + timestamp; // Prevent caching
                         $("#map-frame").attr("src", updatedURL).show();
+                        if (response.legend_html) {
+                            $("#legend-section").html(response.legend_html);
+                        }
                     } else {
                         alert("Error: " + response.error);
                     }
                 },
                 error: function () {
                     $("#loading-message").hide();
+                    $("#generate-button").prop("disabled", false); 
                     alert("Failed to connect to the server.");
                 }
             });
