@@ -364,7 +364,7 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
             
             if not start_coords or not end_coords:
                 print("Error: Could not geocode one or both addresses.")
-                return None, None, None, None, "invalid_address"
+                return None, None, None, None, "invalid_address", None
             
             start_lat, start_lon = start_coords
             end_lat, end_lon = end_coords
