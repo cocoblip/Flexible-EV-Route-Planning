@@ -67,7 +67,7 @@ def apply_charging_icon_styles(m):
     
     return m
 
-def display_paths_on_map(road_network, charging_stations, paths, costs, start_point, end_point, 
+def display_paths_on_map(road_network, charging_stations, paths, costs, remaining_socs, start_point, end_point, 
                         nearest_stations, map_filename, initial_soc, energy_consumption, threshold_soc=20,
                         charging_stop=None):
     """Display paths with charging information"""
@@ -213,7 +213,8 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, start_po
             'time': cost['time'],
             'max_dist': cost['safety'],
             'description': f"Path {i+1}",
-            'critical_dist': max_dist / 1000 if critical_node else 0
+            'critical_dist': max_dist / 1000 if critical_node else 0,
+            'remaining_soc': remaining_socs[i] if i < len(remaining_socs) else 0  
         })
     
     folium.Marker(
@@ -263,7 +264,7 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, start_po
         legend_html += f'''
         <div style="display: flex; align-items: center; margin-top: 5px;">
             <div style="background-color: {color}; width: 15px; height: 3px; margin-right: 5px;"></div>
-            <div>{data['description']}: {time_str}, Proximity: {critical_dist:.2f}km</div>
+            <div>{data['description']}: {time_str}, Proximity: {critical_dist:.2f}km, Remaining Battery: {data['remaining_soc']:.1f}%</div>
         </div>
         '''
     
@@ -275,7 +276,7 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, start_po
     print(f"\nMap with paths saved as {map_filename}")
     return m, legend_html
 
-def display_two_segment_paths(G, charging_stations, paths, costs, path_sections, start_point, end_point, 
+def display_two_segment_paths(G, charging_stations, paths, costs, section1_socs, section2_socs, path_sections, start_point, end_point, 
                              nearest_stations, map_filename, initial_soc, energy_consumption, threshold_soc=20,
                              charging_stop=None):
     """Display two-segment paths with charging information"""
@@ -427,12 +428,17 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
         
         feature_group.add_to(m)
 
+        soc1 = section1_socs[index-1] if section == 1 and (index-1) < len(section1_socs) else 0
+        soc2 = section2_socs[index-1] if section == 2 and (index-1) < len(section2_socs) else 0
+        soc = soc1 + soc2
+
         path_data.append({
             'color': color,
             'time': cost['time'],
             'max_dist': cost['safety'],
             'description': section_info['description'],
-            'critical_dist': max_dist / 1000 if critical_node else 0
+            'critical_dist': max_dist / 1000 if critical_node else 0,
+            'remaining_soc': soc
         })
     
     folium.Marker(
@@ -471,6 +477,7 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
             total_time = data['time']
             max_charging_dist = data['max_dist'] / 1000
             critical_dist = data['critical_dist']
+            soc = data['remaining_soc']
             
             hours = int(total_time // 3600)
             minutes = int((total_time % 3600) // 60)
@@ -484,7 +491,7 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
             legend_html += f'''
             <div style="display: flex; align-items: center; margin-top: 5px;">
                 <div style="background-color: {color}; width: 15px; height: 3px; margin-right: 5px;"></div>
-                <div>{data['description']}: {time_str}, Proximity: {critical_dist:.2f}km</div>
+                <div>{data['description']}: {time_str}, Proximity: {critical_dist:.2f}km, Remaining Battery: {soc:.1f}%</div>
             </div>
             '''
     
@@ -496,6 +503,7 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
             total_time = data['time']
             max_charging_dist = data['max_dist'] / 1000
             critical_dist = data['critical_dist']
+            soc = data['remaining_soc']
             
             hours = int(total_time // 3600)
             minutes = int((total_time % 3600) // 60)
@@ -509,7 +517,7 @@ def display_two_segment_paths(G, charging_stations, paths, costs, path_sections,
             legend_html += f'''
             <div style="display: flex; align-items: center; margin-top: 5px;">
                 <div style="background-color: {color}; width: 15px; height: 3px; margin-right: 5px;"></div>
-                <div>{data['description']}: {time_str}, Proximity: {critical_dist:.2f}km</div>
+                <div>{data['description']}: {time_str}, Proximity: {critical_dist:.2f}km, Remaining Battery: {soc:.1f}%</div>
             </div>
             '''
     

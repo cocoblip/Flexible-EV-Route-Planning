@@ -91,6 +91,18 @@
             border: none;
             display: none;
         }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        #loading-message {
+            animation: fadeIn 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
+        }        
         @media (max-width: 768px) {
             #container {
                 flex-direction: column;
@@ -101,15 +113,17 @@
             }
         
             #map-legend-section {
-                flex-direction: column;
-                width: 100%;
+                display: flex;
+                flex-grow: 1;
             }
-        
-            #map-section,
+            #map-section {
+                flex: 4;
+            }
             #legend-section {
-                width: 100%;
-                padding-left: 0;
+                flex: 1;
+                max-height: 500px;
             }
+            
         
             iframe {
                 height: 400px;
@@ -136,7 +150,7 @@
             <input type="number" id="initial_soc" name="initial_soc" required min="0" max="100" step="0.01" placeholder="0-100">
 
             <label for="threshold_soc">Threshold Battery Percentage (%):</label>
-            <input type="number" id="threshold_soc" name="threshold_soc" required min="0" max="100" step="0.01" placeholder="0-100">
+            <input type="number" id="threshold_soc" name="threshold_soc" required min="0" max="50" step="0.01" placeholder="0-50">
 
             <label for="ev_model">Select EV Model:</label>
             <select id="ev_model" name="ev_model" required>
@@ -223,9 +237,12 @@
             // Disable button to prevent multiple submissions
             $("#generate-button").prop("disabled", true);
 
+            $("#map-frame").hide();    
+            $("#legend-section").hide();                      
+
             // Change color on click
             $("#generate-button").css("background-color", clickedGenerateColor);
-            $("#loading-message").show();
+            $("#loading-message").fadeIn(300);
 
             $.ajax({
                 type: "POST",
@@ -238,16 +255,25 @@
                     if (response.success) {
                         let timestamp = new Date().getTime();
                         let updatedURL = response.map_url + "?t=" + timestamp; // Prevent caching
-                        $("#map-frame").attr("src", updatedURL).show();
-                        if (response.legend_html) {
-                            $("#legend-section").html(response.legend_html);
-                        }
+
+                        $("#map-frame").hide();
+                        $("#legend-section").hide();
+
+                        $("#map-frame").off("load").on("load", function () {
+                            // Show both map and legend after iframe finishes loading
+                            $("#map-frame").show();
+                            if (response.legend_html) {
+                                $("#legend-section").html(response.legend_html).show();
+                            }
+                            $("#loading-message").fadeOut(300);
+                        });
+                        $("#map-frame").attr("src", updatedURL);
                     } else {
                         alert("Error: " + response.error);
                     }
                 },
                 error: function () {
-                    $("#loading-message").hide();
+                    $("#loading-message").fadeOut(300);
                     $("#generate-button").prop("disabled", false); 
                     alert("Failed to connect to the server.");
                 }
@@ -258,7 +284,7 @@
             $("#route-form")[0].reset();       
             $("#generate-button").css("background-color", defaultGenerateColor); 
             $("#map-frame").hide();    
-            $("#legend-section").hide();                      
+            $("#loading-message").fadeOut(300);                   
         });
     });
 </script>

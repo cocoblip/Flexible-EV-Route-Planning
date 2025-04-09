@@ -89,6 +89,7 @@ def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, i
     
     pareto_paths = []
     pareto_costs = []
+    remaining_socs = []
     
     visited = {}
     
@@ -233,17 +234,21 @@ def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, i
             if not is_dominated(costs, pareto_costs):
                 non_dominated_idx = []
                 non_dominated_costs = []
+                non_dominated_socs = []
                 for i, existing_costs in enumerate(pareto_costs):
                     if not (costs[0] <= existing_costs[0] and costs[1] <= existing_costs[1] and 
                            (costs[0] < existing_costs[0] or costs[1] < existing_costs[1])):
                         non_dominated_idx.append(i)
                         non_dominated_costs.append(existing_costs)
+                        non_dominated_socs.append(remaining_socs[i])
                 
                 pareto_paths = [pareto_paths[i] for i in non_dominated_idx]
                 pareto_costs = non_dominated_costs
+                remaining_socs = non_dominated_socs
                 
                 pareto_paths.append(path)
                 pareto_costs.append(costs)
+                remaining_socs.append(remaining_soc)
                 
                 continue
         
@@ -328,10 +333,12 @@ def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, i
     sorted_indices = sorted(range(len(formatted_costs)), key=lambda i: formatted_costs[i]['time'])
     paths = [pareto_paths[i] for i in sorted_indices]
     costs = [formatted_costs[i] for i in sorted_indices]
+    socs = [remaining_socs[i] for i in sorted_indices]
     
     if len(paths) > max_paths:
         paths = paths[:max_paths]
         costs = costs[:max_paths]
+        socs = socs[:max_paths]
     
     print("\nPareto-optimal paths:")
     for i, (path, cost) in enumerate(zip(paths, costs)):
@@ -340,7 +347,7 @@ def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, i
         safety_km = cost['safety'] / 1000
         print(f"Path {i+1}: Travel time: {cost['time']:.1f}s, Safety: {safety_km:.2f}km, Remaining SOC: {remaining_soc:.1f}%")
     
-    return paths, costs, infeasible_paths_info
+    return paths, costs, infeasible_paths_info, socs
 
 
 def test_route_planning(start_address, end_address, initial_soc, threshold_soc, energy_consumption):
@@ -378,7 +385,7 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
             
             if start_node is None or end_node is None:
                 print("Error: Could not find nodes in the road network close to the provided coordinates.")
-                return None, None, None, None, "invalid_address"
+                return None, None, None, None, "invalid_address", None
             
             print(f"Start node: {start_node} (distance: {start_dist:.2f}m)")
             print(f"End node: {end_node} (distance: {end_dist:.2f}m)")
@@ -455,12 +462,12 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
                         end_node = new_end_node
                     else:
                         print("Could not find suitable alternative nodes")
-                        return None, None, None, None
+                        return None, None, None, None, "invalid_address", None
                 
-                return None, None, None, None
+                return None, None, None, None, "invalid_address", None
             
             print("Finding Pareto optimal paths...")
-            paths, costs, infeasible_paths_info = find_pareto_paths(road_network, nearest_stations, start_node, end_node,
+            paths, costs, infeasible_paths_info, remaining_socs = find_pareto_paths(road_network, nearest_stations, start_node, end_node,
                                                                 max_paths=10, initial_soc=initial_soc, 
                                                                 threshold_soc=threshold_soc, energy_consumption=energy_consumption)
             
@@ -501,14 +508,14 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
                     print(f"Node ID: {charging_station_node}, Distance: {charging_station_dist:.2f}m")
                     
                     print("\n--- Section 1: Start to Charging Station ---")
-                    section1_paths, section1_costs, section1_infeasible = find_pareto_paths(
+                    section1_paths, section1_costs, section1_infeasible, section1_socs = find_pareto_paths(
                         road_network, nearest_stations, start_node, charging_station_node,
                         max_paths=5, initial_soc=initial_soc, 
                         threshold_soc=threshold_soc, energy_consumption=energy_consumption
                     )
                     
                     print("\n--- Section 2: Charging Station to End ---")
-                    section2_paths, section2_costs, section2_infeasible = find_pareto_paths(
+                    section2_paths, section2_costs, section2_infeasible, section2_socs = find_pareto_paths(
                         road_network, nearest_stations, charging_station_node, end_node,
                         max_paths=5, initial_soc=100,  
                         threshold_soc=threshold_soc, energy_consumption=energy_consumption
@@ -542,7 +549,7 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
                         map_filename = f"route_{start_address}_to_{end_address}_two_segments.html"
                         try:
                             m, legend_html = map_renderer.display_two_segment_paths(
-                                road_network, charging_stations, all_paths, all_costs, path_sections,
+                                road_network, charging_stations, all_paths, all_costs, section1_socs, section2_socs, path_sections,
                                 {'latitude': start_lat, 'longitude': start_lon},
                                 {'latitude': end_lat, 'longitude': end_lon},
                                 nearest_stations, map_filename,
@@ -569,12 +576,12 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
             
             if not paths:
                 print("No valid paths found")
-                return None, None, None, None
+                return None, None, None, None, None, None
             
             map_filename = f'pareto_paths_{start_address.replace(" ", "_")}_{end_address.replace(" ", "_")}.html'
                 
             try:
-                m, legend_html = map_renderer.display_paths_on_map(road_network, charging_stations, paths, costs, 
+                m, legend_html = map_renderer.display_paths_on_map(road_network, charging_stations, paths, costs, remaining_socs,
                                    {'latitude': start_lat, 'longitude': start_lon},
                                    {'latitude': end_lat, 'longitude': end_lon},
                                    nearest_stations, map_filename, initial_soc, energy_consumption, threshold_soc)
@@ -582,19 +589,19 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
                 print(f"Error in display_paths_on_map: {str(e)}")
                 import traceback
                 traceback.print_exc()
-                return None, None, None, None
+                return None, None, None, None, None, None
             
             return road_network, charging_stations, paths, costs, map_filename, legend_html
         
         else:
             print("BC region data not found. Please load it first.")
-            return None, None, None, None, "error"
+            return None, None, None, None, "error", None
             
     except Exception as e:
         print(f"General error: {str(e)}")
         import traceback
         traceback.print_exc()
-        return None, None, None, None, "invalid_address"
+        return None, None, None, None, "invalid_address", None
 
 def load_bc_province_data(force_reload=False):
     """
