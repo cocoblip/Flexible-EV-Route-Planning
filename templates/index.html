@@ -99,8 +99,12 @@
             from { opacity: 1; }
             to { opacity: 0; }
         }
+        @keyframes circularMotion {
+            0% { transform: translate(-50%, -50%) rotate(0deg) translateY(-20px) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg) translateY(-20px) rotate(-360deg); }
+        }
         #loading-message {
-            animation: fadeIn 0.3s ease-in-out;
+            animation: fadeIn 0.3s ease-in-out, circularMotion 4s linear infinite;
             transition: opacity 0.3s ease-in-out;
         }        
         @media (max-width: 768px) {
@@ -147,10 +151,10 @@
             <input type="text" id="destination" name="destination" required>
 
             <label for="initial_soc">Initial Battery Percentage (%):</label>
-            <input type="number" id="initial_soc" name="initial_soc" required min="0" max="100" step="0.01" placeholder="0-100">
+            <input type="number" id="initial_soc" name="initial_soc" required min="0" max="100" step="0.1" placeholder="0-100">
 
             <label for="threshold_soc">Threshold Battery Percentage (%):</label>
-            <input type="number" id="threshold_soc" name="threshold_soc" required min="0" max="50" step="0.01" placeholder="0-50">
+            <input type="number" id="threshold_soc" name="threshold_soc" required min="0" max="50" step="0.1" placeholder="0-50">
 
             <label for="ev_model">Select EV Model:</label>
             <select id="ev_model" name="ev_model" required>
@@ -284,6 +288,7 @@
             $("#route-form")[0].reset();       
             $("#generate-button").css("background-color", defaultGenerateColor); 
             $("#map-frame").hide();    
+            $("#legend-section").hide();
             $("#loading-message").fadeOut(300);                   
         });
     });

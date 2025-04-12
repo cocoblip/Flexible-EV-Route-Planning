@@ -73,7 +73,7 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, remainin
     """Display paths with charging information"""
     center_lat = (start_point['latitude'] + end_point['latitude']) / 2
     center_lon = (start_point['longitude'] + end_point['longitude']) / 2
-    m = folium.Map(location=[center_lat, center_lon], zoom_start=13)
+    m = folium.Map(location=[center_lat, center_lon], zoom_start=10)
     
     m = apply_charging_icon_styles(m)
     
@@ -283,7 +283,7 @@ def display_two_segment_paths(G, charging_stations, paths, costs, section1_socs,
     center_lat = (start_point['latitude'] + end_point['latitude']) / 2
     center_lon = (start_point['longitude'] + end_point['longitude']) / 2
     
-    m = folium.Map(location=[center_lat, center_lon], zoom_start=11)
+    m = folium.Map(location=[center_lat, center_lon], zoom_start=10)
     
     m = apply_charging_icon_styles(m)
     

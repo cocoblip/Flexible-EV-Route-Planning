@@ -12,7 +12,7 @@ from queue import PriorityQueue
 import re
 import map_renderer
 
-SAFETY_FACTOR = 0.9
+SAFETY_FACTOR = 0.85
 
 
 _cached_road_network = None
@@ -764,5 +764,3 @@ def find_nearest_node(G, lat, lon):
                 nearest_node = node
     
     return nearest_node, min_distance
-
-
