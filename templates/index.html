@@ -171,7 +171,6 @@
                 <option value="Toyota PROACE Verso M 50 kWh">Toyota PROACE Verso M 50 kWh </option>
                 <option value="Mercedes-Benz eVito Tourer Long 90 kWh">Mercedes-Benz eVito Tourer Long 90 kWh </option>
                 <option value="Mercedes-Benz G 580">Mercedes-Benz G 580 </option>
-                <option value="Max">Max </option>
             </select>
 
             <!-- Hidden field for sending consumption rate -->
@@ -198,8 +197,49 @@
         <div id="legend-section">
         
         </div>
+        
     </div>
 </div>
+
+<button id="toggle-guide-button" style="margin-top: 30px; padding: 10px 20px; font-size: 16px; background-color:rgb(87, 83, 83); color: white; border: none; border-radius: 5px; cursor: pointer;">
+    📘 Show User Guide
+</button>
+
+<div id="user-guide" style="display: none; width: 100%; margin-top: 15px; padding: 10 20px; background-color: #ffffff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.05);">
+    <h2>User Guide</h2>
+    <p>
+        This EV Route Planner helps you find optimal routes from your starting location to your destination based on two key objectives:
+        <ul>
+            <li><strong>Travel Time</strong>: How quickly you can reach your destination.</li>
+            <li><strong>Charging Station Proximity</strong>: How close your route remains to charging stations, helping reduce range anxiety.</li>
+        </ul>
+    </p>
+    <h3>How It Works</h3>
+    <ul>
+        <li>Enter your <strong>starting location</strong> and <strong>destination</strong>.</li>
+        <li>Specify your vehicle's <strong>initial battery level</strong> and the <strong>threshold level</strong> below which you'd like to avoid reaching.</li>
+        <li>Select your EV model to automatically apply the correct energy consumption rate.</li>
+        <li>Click <strong>Generate Route</strong> to compute optimal paths.</li>
+    </ul>
+
+    <h3>Understanding the Output</h3>
+    <ul>
+        <li>The map shows <strong>multiple route options</strong> with different colors. Each route represents a different trade-off between speed and safety (charging proximity).</li>
+        <li>Charging stations are marked with icons. Routes may include <strong>one or more charging stops</strong> based on your battery constraints.</li>
+        <li>The <strong>Legend</strong> on the right displays:
+            <ul>
+                <li>Travel time</li>
+                <li>Maximum distance from a charging station (safety)</li>
+                <li>Remaining battery at the end of the route</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p style="margin-top: 15px;">
+        If no valid route is found, the system may attempt to split the journey into two segments with an intermediate charging stop.
+    </p>
+</div>
+
 
 <script>
     $(document).ready(function () {
@@ -290,6 +330,12 @@
             $("#map-frame").hide();    
             $("#legend-section").hide();
             $("#loading-message").fadeOut(300);                   
+        });
+
+        $("#toggle-guide-button").click(function () {
+            $("#user-guide").slideToggle(300);
+            const currentText = $(this).text();
+            $(this).text(currentText.includes("Show") ? "📕 Hide User Guide" : "📘 Show User Guide");
         });
     });
 </script>
