@@ -70,8 +70,8 @@ These packages enhance functionality or improve performance:
 2. pip install -r requirements.txt to install dependencies
 3. Run the `app.py` file.  
 4. Copy and paste the generated URL into your browser.  
-5. Enter the starting point, destination, and other custom parameters in the input fields. Please choose 2 addresses in the Create Vancouver or Fort St. John.
+5. Enter the starting point, destination, and other custom parameters in the input fields. Please choose 2 addresses in the Create Vancouver or Fort St. John.\n
      Note: If the address you enter includes a specific street number, the generated map's start and end points may be slightly different from your input. This is because we select the nodes closest to the input address as the start and end points.
 7. Click the **Generate Route** button.  
-8. Wait for the visualized map to be generated.
+8. Wait for the visualized map to be generated.\n
      Note: The first time the map is generated, it takes longer than subsequent times because the program needs to load the map and road network data.
