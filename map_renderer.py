@@ -73,7 +73,7 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, remainin
     """Display paths with charging information"""
     center_lat = (start_point['latitude'] + end_point['latitude']) / 2
     center_lon = (start_point['longitude'] + end_point['longitude']) / 2
-    m = folium.Map(location=[center_lat, center_lon], zoom_start=10)
+    m = folium.Map(location=[center_lat, center_lon], zoom_start=11)
     
     m = apply_charging_icon_styles(m)
     
@@ -283,7 +283,7 @@ def display_two_segment_paths(G, charging_stations, paths, costs, section1_socs,
     center_lat = (start_point['latitude'] + end_point['latitude']) / 2
     center_lon = (start_point['longitude'] + end_point['longitude']) / 2
     
-    m = folium.Map(location=[center_lat, center_lon], zoom_start=10)
+    m = folium.Map(location=[center_lat, center_lon], zoom_start=11)
     
     m = apply_charging_icon_styles(m)
     
@@ -340,8 +340,21 @@ def display_two_segment_paths(G, charging_stations, paths, costs, section1_socs,
         index = section_info['index']
         
         color = (section1_colors if section == 1 else section2_colors)[(index - 1) % 5]
-        group_name = f"Section {section} - Path {index}: {int(cost['time']//60)}m {int(cost['time']%60)}s, {cost['safety']/1000:.2f} km"
+        
+        if section == 1 and 'total_time' in cost and 'charging_time' in cost:
+            travel_time_str = format_time(cost['time'])
+            charging_time_str = format_time(cost['charging_time'])
+            total_time_str = format_time(cost['total_time'])
+            
+            group_name = f"Section {section} - Path {index}: Travel: {total_time_str}, Safety: {cost['safety']/1000:.2f} km"
+        else:
+            time_str = format_time(cost['time'])
+            group_name = f"Section {section} - Path {index}: Time: {time_str}, Safety: {cost['safety']/1000:.2f} km"
+
         feature_group = folium.FeatureGroup(name=group_name)
+        
+        # group_name = f"Section {section} - Path {index}: {int(cost['time']//60)}m {int(cost['time']%60)}s, {cost['safety']/1000:.2f} km"
+        # feature_group = folium.FeatureGroup(name=group_name)
 
         if section == 1:
             color = section1_colors[(section_info['index'] - 1) % len(section1_colors)]
@@ -359,13 +372,18 @@ def display_two_segment_paths(G, charging_stations, paths, costs, section1_socs,
         
         if not coords:
             continue
+
+        tooltip_text = section_info['description']
+        if section == 1 and 'total_time' in cost:
+            total_time_str = format_time(cost['total_time'])
+            tooltip_text = f"{section_info['description']} (Total: {total_time_str})"
         
         folium.PolyLine(
             coords,
             color=color,
             weight=4,
             opacity=0.8,
-            tooltip=section_info['description']
+            tooltip=tooltip_text
         # ).add_to(m)
         ).add_to(feature_group)
         
@@ -432,14 +450,31 @@ def display_two_segment_paths(G, charging_stations, paths, costs, section1_socs,
         soc2 = section2_socs[index-1] if section == 2 and (index-1) < len(section2_socs) else 0
         soc = soc1 + soc2
 
-        path_data.append({
+        # Add charging time to path_data for section 1
+        path_data_entry = {
             'color': color,
             'time': cost['time'],
             'max_dist': cost['safety'],
             'description': section_info['description'],
             'critical_dist': max_dist / 1000 if critical_node else 0,
             'remaining_soc': soc
-        })
+        }
+        
+        # Add charging time to path_data if it exists
+        if section == 1 and 'charging_time' in cost:
+            path_data_entry['charging_time'] = cost['charging_time']
+            if 'total_time' in cost:
+                path_data_entry['total_time'] = cost['total_time']
+        
+        path_data.append(path_data_entry)
+        # path_data.append({
+        #     'color': color,
+        #     'time': cost['time'],
+        #     'max_dist': cost['safety'],
+        #     'description': section_info['description'],
+        #     'critical_dist': max_dist / 1000 if critical_node else 0,
+        #     'remaining_soc': soc
+        # })
     
     folium.Marker(
         [start_point['latitude'], start_point['longitude']],
@@ -487,11 +522,21 @@ def display_two_segment_paths(G, charging_stations, paths, costs, section1_socs,
                 time_str = f"{hours}h {minutes}m {seconds}s"
             else:
                 time_str = f"{minutes}m {seconds}s"
+
+            time_info = f"Travel: {travel_time_str}"
+        
+            if 'total_time' in data:
+                total_time_str = format_time(data['total_time'])
+                time_info = f"Total: {total_time_str}"
+            else:
+                total_time_str = format_time(data['time'])
+                time_info = f"Total: {total_time_str}"
+
             
             legend_html += f'''
             <div style="display: flex; align-items: center; margin-top: 5px;">
                 <div style="background-color: {color}; width: 15px; height: 3px; margin-right: 5px;"></div>
-                <div>{data['description']}: {time_str}, Proximity: {critical_dist:.2f}km, Remaining Battery: {soc:.1f}%</div>
+                <div>{data['description']}: {time_info}, Proximity: {critical_dist:.2f}km</div>
             </div>
             '''
     

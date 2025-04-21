@@ -57,6 +57,37 @@ def find_nearest_charging_station(node_lat, node_lon, charging_stations):
     
     return nearest_station
 
+def filter_similar_routes(paths, costs, socs, time_diff_threshold=0.02):
+    """
+    Filter out routes that have less than 2 percentage time difference.
+    """
+    if not paths or len(paths) <= 1:
+        return paths, costs, socs
+    
+    sorted_indices = sorted(range(len(costs)), key=lambda i: costs[i]['time'])
+    sorted_paths = [paths[i] for i in sorted_indices]
+    sorted_costs = [costs[i] for i in sorted_indices]
+    sorted_socs = [socs[i] for i in sorted_indices]
+    
+    filtered_indices = [sorted_indices[0]]
+    last_kept_time = sorted_costs[0]['time']
+    
+    for i in range(1, len(sorted_indices)):
+        current_time = sorted_costs[i]['time']
+        time_diff_ratio = (current_time - last_kept_time) / last_kept_time
+        
+        if time_diff_ratio >= time_diff_threshold:
+            filtered_indices.append(sorted_indices[i])
+            last_kept_time = current_time
+    
+    filtered_paths = [paths[i] for i in filtered_indices]
+    filtered_costs = [costs[i] for i in filtered_indices]
+    filtered_socs = [socs[i] for i in filtered_indices]
+    
+    print(f"Filtered routes from {len(paths)} to {len(filtered_paths)} (removed {len(paths) - len(filtered_paths)} similar routes)")
+    
+    return filtered_paths, filtered_costs, filtered_socs
+
 def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, initial_soc=100, threshold_soc=20, energy_consumption=0.2):
     """
     Find Pareto-optimal paths using A* search with state space exploration
@@ -340,6 +371,8 @@ def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, i
         costs = costs[:max_paths]
         socs = socs[:max_paths]
     
+    paths, costs, socs = filter_similar_routes(paths, costs, socs)
+
     print("\nPareto-optimal paths:")
     for i, (path, cost) in enumerate(zip(paths, costs)):
         remaining_soc = calculate_remaining_soc(path, G, initial_soc, energy_consumption)
@@ -348,6 +381,19 @@ def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, i
         print(f"Path {i+1}: Travel time: {cost['time']:.1f}s, Safety: {safety_km:.2f}km, Remaining SOC: {remaining_soc:.1f}%")
     
     return paths, costs, infeasible_paths_info, socs
+
+def calculate_charging_time(current_soc, target_soc=100, charging_rate=3.0):
+    """
+    Calculate the time needed to charge from current SOC to target SOC(100)
+    """
+    if current_soc >= target_soc:
+        return 0
+    
+    soc_to_charge = target_soc - current_soc
+    charging_time_minutes = soc_to_charge / charging_rate
+    charging_time_seconds = charging_time_minutes * 60
+    
+    return charging_time_seconds
 
 
 def test_route_planning(start_address, end_address, initial_soc, threshold_soc, energy_consumption):
@@ -513,6 +559,15 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
                         max_paths=5, initial_soc=initial_soc, 
                         threshold_soc=threshold_soc, energy_consumption=energy_consumption
                     )
+
+                    for i, (path, cost, soc) in enumerate(zip(section1_paths, section1_costs, section1_socs)):
+                        # Calculate charging time from current SOC to 100%
+                        charging_time = calculate_charging_time(soc)
+                        # Add charging time to the cost dictionary
+                        cost['charging_time'] = charging_time
+                        # Update total time to include charging time
+                        cost['total_time'] = cost['time'] + charging_time
+                        print(f"Path {i+1}: Travel time: {cost['time']:.1f}s, Charging time: {charging_time:.1f}s, Total time: {cost['total_time']:.1f}s")
                     
                     print("\n--- Section 2: Charging Station to End ---")
                     section2_paths, section2_costs, section2_infeasible, section2_socs = find_pareto_paths(
@@ -523,6 +578,9 @@ def test_route_planning(start_address, end_address, initial_soc, threshold_soc, 
                     
                     if section1_paths and section2_paths:
                         print(f"\nFound {len(section1_paths)} paths for Section 1 and {len(section2_paths)} paths for Section 2")
+                        
+                        section1_paths, section1_costs, section1_socs = filter_similar_routes(section1_paths, section1_costs, section1_socs)
+                        section2_paths, section2_costs, section2_socs = filter_similar_routes(section2_paths, section2_costs, section2_socs)
                         
                         all_paths = []
                         all_costs = []
