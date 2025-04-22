@@ -264,7 +264,7 @@ def display_paths_on_map(road_network, charging_stations, paths, costs, remainin
         legend_html += f'''
         <div style="display: flex; align-items: center; margin-top: 5px;">
             <div style="background-color: {color}; width: 15px; height: 3px; margin-right: 5px;"></div>
-            <div>{data['description']}: {time_str}, Proximity: {critical_dist:.2f}km, Remaining Battery: {data['remaining_soc']:.1f}%</div>
+            <div>{data['description']}: Total Time: {time_str}, Proximity: {critical_dist:.2f}km, Remaining Battery: {data['remaining_soc']:.1f}%</div>
         </div>
         '''
     
@@ -346,10 +346,10 @@ def display_two_segment_paths(G, charging_stations, paths, costs, section1_socs,
             charging_time_str = format_time(cost['charging_time'])
             total_time_str = format_time(cost['total_time'])
             
-            group_name = f"Section {section} - Path {index}: Travel: {total_time_str}, Safety: {cost['safety']/1000:.2f} km"
+            group_name = f"Section {section} - Path {index}: {total_time_str}, {cost['safety']/1000:.2f} km"
         else:
             time_str = format_time(cost['time'])
-            group_name = f"Section {section} - Path {index}: Time: {time_str}, Safety: {cost['safety']/1000:.2f} km"
+            group_name = f"Section {section} - Path {index}: {time_str}, {cost['safety']/1000:.2f} km"
 
         feature_group = folium.FeatureGroup(name=group_name)
         
@@ -536,7 +536,7 @@ def display_two_segment_paths(G, charging_stations, paths, costs, section1_socs,
             legend_html += f'''
             <div style="display: flex; align-items: center; margin-top: 5px;">
                 <div style="background-color: {color}; width: 15px; height: 3px; margin-right: 5px;"></div>
-                <div>{data['description']}: {time_info}, Proximity: {critical_dist:.2f}km</div>
+                <div>{data['description']}: Total Time: {time_info}, Proximity: {critical_dist:.2f}km</div>
             </div>
             '''
     
@@ -562,7 +562,7 @@ def display_two_segment_paths(G, charging_stations, paths, costs, section1_socs,
             legend_html += f'''
             <div style="display: flex; align-items: center; margin-top: 5px;">
                 <div style="background-color: {color}; width: 15px; height: 3px; margin-right: 5px;"></div>
-                <div>{data['description']}: {time_str}, Proximity: {critical_dist:.2f}km, Remaining Battery: {soc:.1f}%</div>
+                <div>{data['description']}: Total Time: {time_str}, Proximity: {critical_dist:.2f}km, Remaining Battery: {soc:.1f}%</div>
             </div>
             '''
     
