@@ -286,6 +286,7 @@
             }           
             // Disable button to prevent multiple submissions
             $("#generate-button").prop("disabled", true);
+            $("#clear-button").prop("disabled", true);
 
             $("#map-frame").hide();    
             $("#legend-section").hide();                      
@@ -301,6 +302,7 @@
                 success: function (response) {
                     $("#loading-message").hide();
                     $("#generate-button").prop("disabled", false); 
+                    $("#clear-button").prop("disabled", false);
 
                     if (response.success) {
                         let timestamp = new Date().getTime();
@@ -325,6 +327,7 @@
                 error: function () {
                     $("#loading-message").fadeOut(300);
                     $("#generate-button").prop("disabled", false); 
+                    $("#clear-button").prop("disabled", false);
                     alert("Failed to connect to the server.");
                 }
             });
