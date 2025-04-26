@@ -8,6 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            fontnt-size: 1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -42,7 +43,7 @@
             font-size: 14px;
             border-left: 1px solid #ccc;
             margin-left: 10px;
-        }            
+        }               
         label {
             display: block;
             margin-top: 10px;
@@ -107,33 +108,46 @@
             animation: fadeIn 0.3s ease-in-out, circularMotion 4s linear infinite;
             transition: opacity 0.3s ease-in-out;
         }        
+        /* Tablet (iPad) and below */
         @media (max-width: 768px) {
             #container {
                 flex-direction: column;
+                align-items: stretch;
             }
-        
-            #form-section {
-                width: 100%;
-            }
-        
+            #form-section,
             #map-legend-section {
-                display: flex;
-                flex-grow: 1;
+                width: 100% !important;
+                padding: 15px;     
             }
-            #map-section {
-                flex: 4;
-            }
+            #map-section,
             #legend-section {
-                flex: 1;
-                max-height: 500px;
+                width: 100% !important;
+                padding-left: 0 !important;
+                margin-left: 0 !important;
+                border-left: none !important;
             }
-            
-        
             iframe {
-                height: 400px;
+                height: 300px;    
             }
         }
-        
+
+        /* Mobile phones */
+        @media (max-width: 480px) {
+            body {
+                margin: 10px !important;
+            }
+            #form-section {
+                padding: 10px !important;
+            }
+            input, select, button {
+                height: 36px;       
+                font-size: 0.9rem;
+            }
+            #map-section {
+                height: auto;
+            }
+        }
+
         
     </style>
 </head>

@@ -12,9 +12,11 @@ from queue import PriorityQueue
 import re
 import map_renderer
 
-SAFETY_FACTOR = 0.85
+
+SAFETY_FACTOR = 0.85 # Safety margin factor for available SOC when planning detours
 
 
+# Global variables for caching data to avoid repeated overloading
 _cached_road_network = None
 _cached_charging_stations = None
 _cached_intersections = None
@@ -24,6 +26,9 @@ def haversine_distance(lat1, lon1, lat2, lon2):
     Calculate the great circle distance between two points 
     on the earth (specified in decimal degrees)
     """
+    # This is needed for edge length when OSM 'length' is not available,
+    # and to measure distance to the charging stations.
+
     lat1, lon1, lat2, lon2 = map(radians, [lat1, lon1, lat2, lon2])
     
     dlon = lon2 - lon1
@@ -36,7 +41,7 @@ def haversine_distance(lat1, lon1, lat2, lon2):
 
 def find_nearest_charging_station(node_lat, node_lon, charging_stations):
     """
-    Find the nearest charging station to a given node
+    Find the nearest charging station to a given node usinng the Haversine distance
     """
     min_distance = float('inf')
     nearest_station = None
@@ -88,12 +93,17 @@ def filter_similar_routes(paths, costs, socs, time_diff_threshold=0.02):
     
     return filtered_paths, filtered_costs, filtered_socs
 
-def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, initial_soc=100, threshold_soc=20, energy_consumption=0.2):
+def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=10, initial_soc=100, threshold_soc=20, energy_consumption=0.2):
     """
-    Find Pareto-optimal paths using A* search with state space exploration
+    Find Pareto-optimal paths using A* search with state space exploration.
+    Optimizes for both travel time and charging safety (distance to nearest charging station).
     """
+
     def heuristic(node):
-        """Estimate remaining time to goal using Euclidean distance and average speed"""
+        """
+        Estimate remaining time to goal using Euclidean distance and average speed
+        This is the heuristic function for A* algorithm.
+        """
         try:
             node_y = G.nodes[node]['y']
             node_x = G.nodes[node]['x']
@@ -111,8 +121,13 @@ def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, i
         except:
             return 0  
     
+    # Initialize the priority queue for A* search
+    # The frontier represents the set of nodes to be explored in the A* search.
+    # Each element in the frontier is a tuple of (f_score, total_time, max_charging_dist, node, path)
+    # Nodes with lower combined cost are explored first, ensuring we prioritize efficient and safe paths toward the destination.
     frontier = PriorityQueue()
     
+    #Calculate the initial heuristic score (h_score) for the start node.
     h_score = heuristic(start_node)
     f_score = h_score
     
@@ -163,6 +178,8 @@ def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=20, i
         
         visited[node] = new_states
     
+    # A* search loop
+    # max_paths is the maximum number of Pareto-optimal paths to find and this variable can be changed
     while not frontier.empty() and len(pareto_paths) < max_paths:
         f_score, total_time, max_charging_dist, current, path = frontier.get()
         
@@ -398,7 +415,10 @@ def calculate_charging_time(current_soc, target_soc=100, charging_rate=3.0):
 
 def test_route_planning(start_address, end_address, initial_soc, threshold_soc, energy_consumption):
     """
-    Test route planning with given parameters
+    Test route planning with given parameters and return the results.
+    This function is the main entry point for the route planning process. It loads necessary data, 
+    geocodes the start and end addresses, and then calls the route_planning function to find the optimal paths. 
+    
     """
     try:
         road_network, charging_stations, intersections = load_bc_province_data()
