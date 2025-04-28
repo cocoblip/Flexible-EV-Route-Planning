@@ -80,3 +80,8 @@ These packages enhance functionality or improve performance:
 
 ## 5. How can our application be adapted for use with different geographic regions?
 1. The default setting involves selecting a rectangular area as the region of interest. First, obtain the latitude and longitude coordinates of the four boundaries defining the rectangular region. Then, place thses four values into a list in the order of [Southern latitude boundary, Western longitude boundary, Northern latitude boundary, Eastern longitude boundary].
+2. Update the code defining the rectangular area boundaries in the generate_charging_stations_data() function within get_charging_stations.py; update the filename of the generated JSON file accordingly.
+3. Update the code defining the rectangular area boundaries in the generate_roads_data() function within get_road_networks.py; update the filename of the generated JSON file accordingly.
+4. Execute the updated get_charging_stations.py and get_road_networks.py scripts with an active internet connection.
+5. Execute calculate_nearest_stations.py script with two new json files.
+6. Repeat step 2 to 8 in **Steps to Operate**
