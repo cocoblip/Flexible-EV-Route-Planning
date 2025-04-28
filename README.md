@@ -1,16 +1,16 @@
 # Balancing Travel Time and Range Anxiety in Route Planning for Electric Vehicles
 ### _Contributors: Zi Hao Li, Palkan Motwani_
 
-This project implements an advanced route planning system for electric vehicles (EVs) that optimizes both travel time and charging safety proximity. The system processes road network data from British Columbia, calculates distances to nearest charging stations, and renders the optimal routes on interactive maps. This tool helps EV drivers plan journeys with confidence, addressing range anxiety by providing routes that balance efficiency with charging accessibility.
+This project implements an advanced route planning system for electric vehicles (EVs) that optimizes both travel time and proximity to charging station. The system processes road network data from British Columbia, calculates distances from primary road intersections to the nearest charging stations, and renders the optimal routes on interactive maps. This tool helps EV drivers plan journeys with confidence, addressing range anxiety by providing routes that balance time consumption with charging accessibility.
 
 ## 1. Features
 
-- Multi-Objective Optimization: Balances travel time and charging safety concerns
+- Multi-Objective Optimization: Balances travel time and range anxiety concerns
 - Pareto-Optimal Paths: Generates non-dominated solutions representing different trade-offs
 - Battery Constraints: Ensures routes maintain sufficient battery charge throughout the journey
 - Real Road Network: Uses OpenStreetMap data for realistic route planning
 - Charging Station Integration: Incorporates real-world charging station locations
-- Customizable Parameters: Adjustable initial state of charge, threshold, and energy consumption
+- Customizable Parameters: Adjustable initial state of charge, threshold, and different battery consumption rates of different EV models
 
 ## 2. Files Overview
 #### 2.1 Data Collection and Processing
