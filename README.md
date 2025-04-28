@@ -1,4 +1,4 @@
-# Flexible EV Route Planning: Balancing Travel Time and Charging Station Proximity
+# Balancing Travel Time and Range Anxiety in Route Planning for Electric Vehicles
 ### _Contributors: Zi Hao Li, Palkan Motwani_
 
 This project implements an advanced route planning system for electric vehicles (EVs) that optimizes both travel time and charging safety proximity. The system processes road network data from British Columbia, calculates distances to nearest charging stations, and renders the optimal routes on interactive maps. This tool helps EV drivers plan journeys with confidence, addressing range anxiety by providing routes that balance efficiency with charging accessibility.
