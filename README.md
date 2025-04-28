@@ -77,3 +77,6 @@ These packages enhance functionality or improve performance:
 8. Wait for the visualized map to be generated.
 
    **Note**: The first time the map is generated, it takes longer than subsequent times because the program needs to load the map and road network data.
+
+## 5. How can our application be adapted for use with different geographic regions?
+1. The default setting involves selecting a rectangular area as the region of interest. First, obtain the latitude and longitude coordinates of the four boundaries defining the rectangular region. Then, place thses four values into a list in the order of [Southern latitude boundary, Western longitude boundary, Northern latitude boundary, Eastern longitude boundary].
