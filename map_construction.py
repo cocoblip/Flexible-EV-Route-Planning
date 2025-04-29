@@ -93,7 +93,7 @@ def filter_similar_routes(paths, costs, socs, time_diff_threshold=0.02):
     
     return filtered_paths, filtered_costs, filtered_socs
 
-def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths=10, initial_soc=100, threshold_soc=20, energy_consumption=0.2):
+def find_pareto_paths(G, nearest_stations, start_node, end_node, max_paths, initial_soc, threshold_soc, energy_consumption):
     """
     Find Pareto-optimal paths using A* search with state space exploration.
     Optimizes for both travel time and charging safety (distance to nearest charging station).
