@@ -78,7 +78,8 @@ These packages enhance functionality or improve performance:
 
    **Note**: The first time the map is generated, it takes longer than subsequent times because the program needs to load the map and road network data.
 
-## 5. How can our application be adapted for use with different geographic regions?
+## 5. FAQ
+### How can our application be adapted for use with different geographic regions?
 1. The default setting involves selecting a rectangular area as the region of interest. First, obtain the latitude and longitude coordinates of the four boundaries defining the rectangular region. Then, place thses four values into a list in the order of [Southern latitude boundary, Western longitude boundary, Northern latitude boundary, Eastern longitude boundary].
 2. Update the code defining the rectangular area boundaries in the generate_charging_stations_data() function within get_charging_stations.py; update the filename of the generated JSON file accordingly.
 3. Update the code defining the rectangular area boundaries in the generate_roads_data() function within get_road_networks.py; update the filename of the generated JSON file accordingly.
