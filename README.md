@@ -86,3 +86,6 @@ These packages enhance functionality or improve performance:
 4. Execute the updated get_charging_stations.py and get_road_networks.py scripts with an active internet connection.
 5. Execute calculate_nearest_stations.py script with two new json files, update the filename of the generated JSON file accordingly.
 6. Repeat step 2 to 8 in **Steps to Operate**
+
+### What is the maximum number of route options your planning system can generate between two locations?
+When the vehicle can travel directly between two points without being constrained by battery limitations, the system generates up to 10 route alternatives, depending on the specific locations of the origin and destination as well as the underlying road network. When the actual number of Pareto frontiers is less than or equal to 10, we provide all available route options. If the number exceeds 10, the computation process terminates once 10 solutions have been identified. If you wish to modify this limit, you can update the max_paths parameter in the test_route_planning() function within the map_construction.py file.
