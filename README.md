@@ -79,7 +79,7 @@ These packages enhance functionality or improve performance:
    **Note**: The first time the map is generated, it takes longer than subsequent times because the program needs to load the map and road network data.
 
 ## 5. FAQ
-### How can our application be adapted for use with different geographic regions?
+### _1. How can our application be adapted for use with different geographic regions?_
 1. The default setting involves selecting a rectangular area as the region of interest. First, obtain the latitude and longitude coordinates of the four boundaries defining the rectangular region. Then, place thses four values into a list in the order of [Southern latitude boundary, Western longitude boundary, Northern latitude boundary, Eastern longitude boundary].
 2. Update the code defining the rectangular area boundaries in the generate_charging_stations_data() function within get_charging_stations.py; update the filename of the generated JSON file accordingly.
 3. Update the code defining the rectangular area boundaries in the generate_roads_data() function within get_road_networks.py; update the filename of the generated JSON file accordingly.
@@ -87,5 +87,5 @@ These packages enhance functionality or improve performance:
 5. Execute calculate_nearest_stations.py script with two new json files, update the filename of the generated JSON file accordingly.
 6. Repeat step 2 to 8 in **Steps to Operate**
 
-### What is the maximum number of route options your planning system can generate between two locations?
+### _2. What is the maximum number of route options your planning system can generate between two locations?_
 When the vehicle can travel directly between two points without being constrained by battery limitations, the system generates up to 10 route alternatives, depending on the specific locations of the origin and destination as well as the underlying road network. When the actual number of Pareto frontiers is less than or equal to 10, we provide all available route options. If the number exceeds 10, the computation process terminates once 10 solutions have been identified. If you wish to modify this limit, you can update the max_paths parameter in the test_route_planning() function within the map_construction.py file.
